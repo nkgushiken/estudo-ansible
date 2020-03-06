@@ -1,0 +1,12 @@
+---
+- name: Upload Simple File
+  hosts: localhost
+  become: yes
+  gather_facts: yes 
+  tasks: 
+    - name: Upload File
+      template:
+        src: ./teste.txt #caminho do arquivo a ser feito upload
+        dest: /usr/src #localização do arquivo na máquina remota de destino
+        mode: 0777 #permissões relacionadas ao arquivo ou diretório
+      register: upload_file
